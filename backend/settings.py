@@ -9,25 +9,29 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
+from dotenv import load_dotenv
+load_dotenv()
 
 from pathlib import Path
 from datetime import timedelta
 import os
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-2u%0t&v1$@f1)dfq*b8epj)+dh+hls=%!r)cdlekb&ab&tl$zm'
+# SECRET_KEY = 'django-insecure-2u%0t&v1$@f1)dfq*b8epj)+dh+hls=%!r)cdlekb&ab&tl$zm'
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+DEBUG = os.environ.get('DEBUG', 'False').lower() == 'true'
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split()
 
 
 # Application definition
@@ -127,6 +131,13 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+database_url = os.environ.get('DATABASE_URL')
+
+# 
+
+DATABASES['default'] = dj_database_url.parse(database_url)
+
 
 # DATABASES = {
 #     'default': {

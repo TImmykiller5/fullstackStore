@@ -16,7 +16,7 @@ from datetime import datetime
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 # Create your views here.
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
-    default_error_messages = {'no_active_account': 'email or pasXsword is incorrect!'}
+    default_error_messages = {'no_active_account': 'email or password is incorrect!'}
     def validate(self, attrs):
         data = super().validate(attrs)
 
@@ -129,7 +129,7 @@ class getProducts(APIView):
         products = Product.objects.filter(name__icontains=query)
 
         page = request.query_params.get('page')
-        paginator = Paginator(products, per_page=10)
+        paginator = Paginator(products, per_page=8)
 
         try:
             products = paginator.page(page)

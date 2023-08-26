@@ -8,7 +8,6 @@ import { login } from "../actions/userActions";
 import FormContainer from "../components/FormContainer";
 import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { Redirect } from "react-router-dom";
 
 function LoginScreen() {
   const Location = useLocation();
