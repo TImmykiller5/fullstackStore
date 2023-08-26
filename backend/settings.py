@@ -128,6 +128,16 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'Olawale$fellstackStore',
+#         'USER': 'Olawale',
+#         'PASSWORD': 'timi2002',
+#         'HOST': 'Olawale.mysql.pythonanywhere-services.com',
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
