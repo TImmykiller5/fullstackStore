@@ -126,18 +126,18 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
 
-database_url = os.environ.get('DATABASE_URL')
+# database_url = os.environ.get('DATABASE_URL')
 
-# 
+# # 
 
-DATABASES['default'] = dj_database_url.parse(database_url)
+# DATABASES['default'] = dj_database_url.parse(database_url)
 
 
 # DATABASES = {
@@ -149,6 +149,19 @@ DATABASES['default'] = dj_database_url.parse(database_url)
 #         'HOST': 'Olawale.mysql.pythonanywhere-services.com',
 #     }
 # }
+# user=postgres.tdqiqggscejsnftfjbnt password=[YOUR-PASSWORD] host=aws-0-eu-central-1.pooler.supabase.com port=5432 dbname=postgres
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres.tdqiqggscejsnftfjbnt',
+        'PASSWORD': 'Olawale_2002',
+        'HOST': 'aws-0-eu-central-1.pooler.supabase.com',
+
+    }
+}
+
 
 
 # Password validation
